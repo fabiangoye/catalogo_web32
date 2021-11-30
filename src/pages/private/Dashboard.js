@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
-import { ProductProvider } from '../../context/Productcontext';
+import { ProductProvider } from '../../context/ProductContext';
 import logo from '../../logo.svg';
 
 const Dashboard = () => {

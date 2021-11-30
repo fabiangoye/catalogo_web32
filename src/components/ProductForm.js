@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
-import ProductContext from '../context/Productcontext';
+import ProductContext from '../context/ProductContext';
 
 const objForm = {
     name: "",
@@ -17,7 +17,7 @@ const ProductForm = () => {
     const [form, setForm] = useState(objForm);
 
     const handleForm = (e) => {
-        setForm({...form, [e.target.value]: e.target.name});
+        setForm({...form, [e.target.name]: e.target.value});
     }
 
     const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ const ProductForm = () => {
             alert('Created');
             setForm(objForm);
     }
-        }
+        };
         
 
     return (

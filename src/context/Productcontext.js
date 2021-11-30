@@ -13,7 +13,7 @@ const ProductProvider = ({children}) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Autorization: `Bearer ${token}`//enviando el token en la autorización
+                Authorization: `Bearer ${token}`//enviando el token en la autorización
             },
             body: JSON.stringify(objProduct)
         });
