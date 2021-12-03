@@ -58,7 +58,12 @@ const AuthProvider = ({ children }) => {
         return resp;
     }
 
-    const data = { handleRegister, handleLogin, auth };
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        setAuth(false);
+    }
+
+    const data = { handleRegister, handleLogin, handleLogout, auth };
 
     return <AuthContext.Provider value={data}>{/**objeto jsx que retorna los children */}
         {children}

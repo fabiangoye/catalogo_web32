@@ -24,7 +24,7 @@ const ProductForm = () => {
         e.preventDefault();
         const resp = await handleCreate(form);
         if(resp.status === 201){
-            alert('Created');
+            //alert('Created');
             setForm(objForm);
     }
         };

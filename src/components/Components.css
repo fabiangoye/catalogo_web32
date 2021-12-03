@@ -1,0 +1,5 @@
+.contCard {
+    display: grid;
+    margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr);/* tres filas por 1fr*/
+}
