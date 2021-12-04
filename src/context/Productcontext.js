@@ -37,7 +37,7 @@ const ProductProvider = ({children}) => {
         let resp = await fetch(apiProductByUser,{
             method: 'GET',
             headers:{
-                'Content_Type': 'application/json',
+                'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
             }
             //como es GET no se pasa un body
@@ -45,13 +45,30 @@ const ProductProvider = ({children}) => {
         });
         if(resp.status === 200){
            let json = await resp.json(); //acá se obtiene el cuerpo de esa respuesta, osea el json de esa respuesta. El método json() devuelve una promesa, por eso se usa el await
-            setProducts(json);
+            setProducts(json);//este es el seteo del state products
         
         }
 
         return resp.status;
     }
-    const data = {handleCreate, getProducts, products};
+
+const setProduct = async(objProduct) =>{
+    const token = localStorage.getItem('token');
+    let resp = await fetch(apiProduct,{
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(objProduct)
+    });
+    if(resp.status === 200){
+        getProducts(); // si todo esta bien cargo los productos
+    }
+    return resp.status;
+}
+
+    const data = {handleCreate, getProducts, products, setProduct};
 
     return <ProductContext.Provider value={data}>{children}</ProductContext.Provider>
 }

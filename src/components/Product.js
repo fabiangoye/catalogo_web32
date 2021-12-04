@@ -13,7 +13,7 @@ const Product = () => {
             <h2>Product</h2>
             <ProductForm />
             <div className="contCard">
-                {products.map(element => <ProductCard key={element._id} url_img={element.url_img} name={element.name} price={element.price} />)}
+                {products.map(product => <ProductCard key={product._id} objProduct = {product} />)}
             </div>
         </div>
     )
